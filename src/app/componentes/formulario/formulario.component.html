@@ -1,0 +1,242 @@
+<section id="contact-form-section" class="form-content-wrap">
+  <div class="container">
+    <div class="row">
+      <div class="tab-content">
+        <div class="col-sm-12">
+          <div class="item-wrap">
+            <div class="row" #target>
+              
+              <div class="col-sm-12">
+                <div class="item-content colBottomMargin">
+                  <div class="item-info">
+                    <h2 class="item-title text-center">Entre em contato com a Remaza Filial Pacaembu</h2>
+                    
+                  </div><!--End item-info -->
+                  
+                 </div><!--End item-content -->
+              </div><!--End col -->
+              <div class="col-md-12">
+              
+              
+              <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" data-toggle="validator" class="popup-form">
+                      <div class="row">
+                        <div id="msgContactSubmit" class="hidden"></div>                        
+                        <div class="form-group col-sm-6" >
+                          <div class="help-block with-errors"></div>
+                          <input name="fname" id="fname" placeholder="Nome Completo*" class="form-control" type="text" formControlName="nomeCliente"> 
+                          <div class="input-group-icon"><i class="fa fa-user"></i></div>
+                          <div class="div-error" *ngIf="!registerForm.controls.nomeCliente.valid && registerForm.controls.nomeCliente.touched">
+                              <div *ngIf="registerForm.controls.nomeCliente.errors.required">*Campo Obrigatório</div>
+                           </div>
+                        </div><!-- end form-group -->
+                        <div class="form-group col-sm-6">                          
+                          <select name="Tipo do Consórcio" id="Tipo do Consórcio" placeholder="Tipo do Consórcio*" class="form-control" formControlName="tpConsorcioCliente" type="text" required data-error="Por favor, informe o tipo da carta de crédito.">
+                            <option>Carro/Ultilitários</option>
+                            <option>Imóvel</option>
+                            <option>Motocicleta</option>
+                          </select>
+                          <div class="input-group-icon"><i class="fa fa-asterisk"></i></div>
+                          <div class="div-error" *ngIf="!registerForm.controls.tpConsorcioCliente.valid && registerForm.controls.tpConsorcioCliente.touched">
+                              <div *ngIf="registerForm.controls.tpConsorcioCliente.errors.required">*Campo Obrigatório</div>
+                           </div>
+                        </div><!-- end form-group -->
+                        <div class="form-group col-sm-6">
+                          <div class="help-block with-errors"></div>
+                          <input name="phone" id="phone" placeholder="Telefone*" class="form-control" type="text" formControlName="telefoneCliente" required data-error="Por favor, informe um telefone">
+                          <div class="input-group-icon"><i class="fa fa-phone"></i></div> 
+                          <div class="div-error" *ngIf="!registerForm.controls.telefoneCliente.valid && registerForm.controls.telefoneCliente.touched">
+                              <div *ngIf="registerForm.controls.telefoneCliente.errors.required">*Campo Obrigatório</div>
+                           </div>
+                        </div><!-- end form-group -->
+                        <div class="form-group col-sm-6">
+                          <div class="help-block with-errors"></div>
+                          <input name="subject" id="subject" placeholder="Informe o valor da carta de crédito" class="form-control" formControlName="valorCartaCreditoCliente" type="text" required data-error="Por favor, informe o valor da carta de crédito">                   
+                          <div class="input-group-icon"><i class="fa fa-book"></i></div> 
+                          <div class="div-error" *ngIf="!registerForm.controls.valorCartaCreditoCliente.valid && registerForm.controls.valorCartaCreditoCliente.touched">
+                              <div *ngIf="registerForm.controls.valorCartaCreditoCliente.errors.required">*Campo Obrigatório</div>
+                           </div>
+                        </div><!-- end form-group -->
+                        <div class="form-group col-sm-12">
+                          <div class="help-block with-errors"></div>
+                          <textarea rows="3" name="message" id="message" placeholder="Descreva sua dúvida ou nos informe seu interesse*" class="form-control" formControlName="motivoContatoCliente" required data-error="Por favor, informe uma descrição"></textarea>
+                          <div class="textarea input-group-icon"><i class="fa fa-pencil"></i></div>
+                          <div class="div-error" *ngIf="!registerForm.controls.motivoContatoCliente.valid && registerForm.controls.motivoContatoCliente.touched">
+                              <div *ngIf="registerForm.controls.motivoContatoCliente.errors.required">*Campo Obrigatório</div>
+                           </div>
+                        </div><!-- end form-group -->
+                        <div class="col-12">
+                          <div class="row span-radio">
+                              <div class="col-6" align="left">
+                                  <div class="form-check mb-2">
+                                      <input class="form-check-input" type="radio" name="optradio" id="autoSizingCheck" value="vendedor" #vendedor (click)="TipoEscolha(this.vendedor.value)">
+                                      <label class="form-check-label" for="autoSizingCheck">
+                                        Desejo que um vendedor venha até mim
+                                      </label>
+                                    </div>
+                              </div>
+                              <div class="col-6" align="right">
+                                  <div class="form-check mb-2">
+                                      <input class="form-check-input" type="radio" name="optradio" id="autoSizingCheck" value="filial" #filial (click)="TipoEscolha(this.filial.value)">
+                                      <label class="form-check-label" for="autoSizingCheck">
+                                        Desejo ir até a Filial Pacaembu
+                                      </label>
+                                    </div>
+                              </div>  
+                          </div>
+                          <div *ngIf="this.mostra == 'V'">
+                              <div class="form-row">
+                                  <div class="form-group col-md-4">
+                                      <label for="inputZip">CEP</label>
+                                      <input type="text" class="form-control" id="inputZip" formControlName="cepCliente" #cep (change)="buscaCEP(cep.value)">
+                                      <div class="div-error" *ngIf="!registerForm.controls.cepCliente.valid && registerForm.controls.cepCliente.touched">
+                                        <div *ngIf="registerForm.controls.cepCliente.errors.required">*Campo Obrigatório</div>
+                                     </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="inputCity">Município</label>
+                                        <input type="text" class="form-control" id="inputCity" formControlName="municipioCliente">
+                                        <div class="div-error" *ngIf="!registerForm.controls.municipioCliente.valid && registerForm.controls.municipioCliente.touched">
+                                          <div *ngIf="registerForm.controls.municipioCliente.errors.required">*Campo Obrigatório</div>
+                                       </div>
+                                      </div>
+                                      <div class="form-group col-md-2">
+                                          <label for="inputState">UF</label>
+                                          <select id="inputState" class="form-control" formControlName="ufCliente">
+                                            <option selected>-</option>
+                                            <option>SP</option>
+                                          </select>
+                                          <div class="div-error" *ngIf="!registerForm.controls.ufCliente.valid && registerForm.controls.ufCliente.touched">
+                                            <div *ngIf="registerForm.controls.ufCliente.errors.required">*Campo Obrigatório</div>
+                                         </div>
+                                        </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-10">
+                                        <label for="inputAddress">Endereço</label>
+                                        <input type="text" class="form-control" formControlName="logradouroCliente" id="inputAddress">
+                                        <div class="div-error" *ngIf="!registerForm.controls.logradouroCliente.valid && registerForm.controls.logradouroCliente.touched">
+                                          <div *ngIf="registerForm.controls.logradouroCliente.errors.required">*Campo Obrigatório</div>
+                                        </div>
+                                      </div>
+                                      <div class="form-group col-md-2">
+                                          <label for="inputAddress2">N°</label>
+                                          <input type="text" class="form-control" id="inputAddress2" formControlName="numCliente">
+                                          <div class="div-error" *ngIf="!registerForm.controls.numCliente.valid && registerForm.controls.numCliente.touched">
+                                            <div *ngIf="registerForm.controls.numCliente.errors.required">*Campo Obrigatório</div>
+                                          </div>
+                                        </div>
+                                  </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-2">
+                                        <label for="inputAtendimento">Atendimento</label>
+                                        <input type="text" class="form-control text-align" id="inputAtendimento"  name="dp" formControlName="dtAtendimentoCliente" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" (focus)="d.toggle()">
+                                        <div class="div-error" *ngIf="!registerForm.controls.dtAtendimentoCliente.valid && registerForm.controls.dtAtendimentoCliente.touched">
+                                          <div *ngIf="registerForm.controls.dtAtendimentoCliente.errors.required">*Campo Obrigatório</div>
+                                        </div>
+                                      </div>
+                                      <div class="form-group col-md-2">
+                                        <label for="inputHora">Horário</label>
+                                        <select id="inputHora" class="form-control text-align" formControlName="horarioAtendimentoCliente">
+                                          <option selected>-</option>
+                                          <option>09:00</option>
+                                          <option>09:30</option>
+                                          <option>10:00</option>
+                                          <option>10:30</option>
+                                          <option>11:00</option>
+                                          <option>11:30</option>
+                                          <option>12:00</option>
+                                          <option>12:30</option>
+                                          <option>13:00</option>
+                                          <option>13:30</option>
+                                          <option>14:00</option>
+                                          <option>14:30</option>
+                                          <option>15:00</option>
+                                          <option>15:30</option>
+                                          <option>16:00</option>
+                                          <option>16:30</option>
+                                          <option>17:00</option>
+                                          <option>17:30</option>
+                                          <option>18:00</option>
+                                          <option>18:30</option>
+                                          <option>19:00</option>
+                                          <option>19:30</option>
+                                        </select>
+                                        <div class="div-error" *ngIf="!registerForm.controls.horarioAtendimentoCliente.valid && registerForm.controls.horarioAtendimentoCliente.touched">
+                                          <div *ngIf="registerForm.controls.horarioAtendimentoCliente.errors.required">*Campo Obrigatório</div>
+                                        </div>
+                                      </div>
+                                  </div>
+                                 
+                              </div>
+                        </div>  
+                        <div class="col-auto">
+                            <div *ngIf="this.mostra == 'F'">
+                              <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="inputAtendimento">Atendimento</label>
+                                    <input type="text" class="form-control text-align" id="inputAtendimento"  name="dp" formControlName="dtAtendimentoCliente" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" (focus)="d.toggle()">
+                                    <div class="div-error" *ngIf="!registerForm.controls.dtAtendimentoCliente.valid && registerForm.controls.dtAtendimentoCliente.touched">
+                                      <div *ngIf="registerForm.controls.dtAtendimentoCliente.errors.required">*Campo Obrigatório</div>
+                                    </div>
+                                  </div>
+                                  <div class="form-group col-md-4">
+                                    <label for="inputHora">Horário</label>
+                                    <select id="inputHora" class="form-control text-align" formControlName="horarioAtendimentoCliente">
+                                      <option selected>-</option>
+                                      <option>09:00</option>
+                                      <option>09:30</option>
+                                      <option>10:00</option>
+                                      <option>10:30</option>
+                                      <option>11:00</option>
+                                      <option>11:30</option>
+                                      <option>12:00</option>
+                                      <option>12:30</option>
+                                      <option>13:00</option>
+                                      <option>13:30</option>
+                                      <option>14:00</option>
+                                      <option>14:30</option>
+                                      <option>15:00</option>
+                                      <option>15:30</option>
+                                      <option>16:00</option>
+                                      <option>16:30</option>
+                                      <option>17:00</option>
+                                      <option>17:30</option>
+                                      <option>18:00</option>
+                                      <option>18:30</option>
+                                      <option>19:00</option>
+                                      <option>19:30</option>
+                                    </select>
+                                    <div class="div-error" *ngIf="!registerForm.controls.horarioAtendimentoCliente.valid && registerForm.controls.horarioAtendimentoCliente.touched">
+                                      <div *ngIf="registerForm.controls.horarioAtendimentoCliente.errors.required">*Campo Obrigatório</div>
+                                    </div>
+                                  </div>
+                              </div>
+                            </div>  
+                          </div>  
+                        <div class="form-group last col-sm-12">
+                          <button type="submit" id="submit" class="btn btn-custom" [disabled]="!registerForm.valid"><i class='fa fa-envelope'></i> Enviar</button>
+                        </div><!-- end form-group -->	
+                    
+                        <div class="clearfix"></div>
+                      </div><!-- end row -->
+                    </form><!-- end form -->
+                    
+                    
+                
+                
+                
+              
+              </div>
+            </div><!--End row -->
+            
+          
+              
+            
+            <!-- Popup end -->
+            
+          </div><!-- end item-wrap -->
+        </div><!--End col -->
+      </div><!--End tab-content -->
+    </div><!--End row -->
+  </div><!--End container -->
+</section>

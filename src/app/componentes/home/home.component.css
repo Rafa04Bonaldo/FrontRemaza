@@ -1,0 +1,89 @@
+
+.jumbotron-with-background {
+    background: linear-gradient(
+                     rgba(20,20,20, .5), 
+                     rgba(20,20,20, .5)),
+                     URL('assets/img/home.jpg');
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+.jumbotron-with-background img{
+    width: 20%;
+    height: 200px;
+}
+
+.jumbotron-with-background h1{
+    color: #ffffff;
+    font-family: 'Open Sans';
+}
+
+.jumbotron-with-background p{
+    color: #ffffff;
+    font-family: 'Open Sans';
+}
+
+.jumbotron-with-background .lead a{
+    background: rgb(249, 124, 0);
+    border: none;
+    border-radius: 30px;
+    font-family: 'Open Sans';
+    width: 15%;
+}
+
+.jumbotron-with-background .my-4{
+    background: white;
+    width: 75%;
+}
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.btn, .btn-lg {
+    padding: .5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+}
+.btn-align{
+    position: absolute;
+    top: 520px;
+    margin-left: -100px;
+}
+
+@media (min-width: 200px) and (max-width: 480px ){
+    .jumbotron-with-background img{
+        width: 40% !important;
+        height: 150px !important;
+    }
+
+    .jumbotron-with-background p{
+        color: #ffffff;
+        font-family: 'Open Sans';
+        font-size: 12px;
+    }
+
+    .jumbotron-with-background .lead a{
+        font-size: 14px;
+        width: 35% !important;
+    }
+
+    .jumbotron-with-background{
+        height: 400px !important;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .jumbotron-with-background .lead a{
+        font-size: 14px;
+        width: 25% !important;
+    }
+}
+
