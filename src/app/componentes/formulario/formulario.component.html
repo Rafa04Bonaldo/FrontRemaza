@@ -50,7 +50,7 @@
                         </div><!-- end form-group -->
                         <div class="form-group col-sm-6">
                           <div class="help-block with-errors"></div>
-                          <input name="subject" id="subject" placeholder="Informe o valor da carta de crédito" class="form-control" formControlName="valorCartaCreditoCliente" type="text" required data-error="Por favor, informe o valor da carta de crédito">                   
+                          <input currencyMask name="subject" id="subject" placeholder="Informe o valor da carta de crédito" class="form-control" formControlName="valorCartaCreditoCliente" type="text" required data-error="Por favor, informe o valor da carta de crédito" [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">                   
                           <div class="input-group-icon"><i class="fa fa-book"></i></div> 
                           <div class="div-error" *ngIf="!registerForm.controls.valorCartaCreditoCliente.valid && registerForm.controls.valorCartaCreditoCliente.touched">
                               <div *ngIf="registerForm.controls.valorCartaCreditoCliente.errors.required">*Campo Obrigatório</div>

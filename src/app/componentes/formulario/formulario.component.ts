@@ -65,9 +65,9 @@ export class FormularioComponent implements OnInit {
     }
     
     this.service.create(this.registerForm.value).subscribe(result =>{
-        console.log("bb", result)
+        if(result.status == 200)
         alert("Salvo com sucesso!");
-    }, err => { alert("erro ao salvar!"); });
+    }, err => { alert("erro ao salvar.."); });
   }
 
   ngOnInit() {

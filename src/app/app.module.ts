@@ -9,6 +9,7 @@ import { FooterComponent } from './componentes/footer/footer.component';
 import { FormularioComponent } from './componentes/formulario/formulario.component';
 import { NgxViacepModule } from '@brunoc/ngx-viacep';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgxCurrencyModule } from "ngx-currency";
 import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -26,6 +27,7 @@ import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     NgxViacepModule,
     NgbModule,
+    NgxCurrencyModule,
     NgbPaginationModule,
     NgbAlertModule
   ],
